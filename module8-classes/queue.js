@@ -26,3 +26,7 @@ q.dequeue();
 q.display();
 console.log("front :" + q.front());
 console.log(q.isEmpty());
+console.log(q instanceof Queue); //instanceof returns true if prototype of a constructor appears in prototype chain of object.
+//  it returns true as q is instance of QUeue.
+// It works through inhertance, if q is an instance of subclassB then it'll be instance of its parent class and also instance of Object class.
+console.log(q instanceof Object);
