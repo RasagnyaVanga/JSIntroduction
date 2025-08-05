@@ -10,14 +10,20 @@ const custom_Iterator =function(st,end,step){
       else{
         return {done:true};
       }
+    },
+    [Symbol.iterator](){ //making this iterable
+      return this;
     }
-  }
+  };
 }
 
-let iterator=custom_Iterator(1,5,1); //creating object to function
-let result=iterator.next();
+let iterator=custom_Iterator(1,5,2); //creating object to function
+// let result=iterator.next(); //accessing next through object
 
-while(!result.done){
-  console.log(result.value);
-  result=iterator.next();
+// while(!result.done){
+//   console.log(result.value);
+//   result=iterator.next();
+// }
+for(var item of iterator){
+  console.log(item);
 }
