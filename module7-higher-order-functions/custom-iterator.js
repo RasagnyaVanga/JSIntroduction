@@ -1,23 +1,23 @@
-function custom_Iterator(st, end, step) {
-  let curr = st;
+const custom_Iterator =function(st,end,step){
+  let start=st;
   return {
-    next: function () {
-      if (curr <= end) {
-        const value = curr;
-        curr += step;
-        return { value, done: false };
-      } else {
-        return { done: true };
+    next(){
+      if(start<=end){
+        let now=start;
+        start=start+step;
+        return {done:false, value:now};
+      }
+      else{
+        return {done:true};
       }
     }
-  };
-}
-function run_Iterator(iterator, callback) {
-  let result = iterator.next();
-  while (!result.done) {
-    callback(result.value);
-    result = iterator.next();
   }
 }
-const iterator=custom_Iterator(1,5,1);
-run_Iterator(iterator,(val)=> { console.log(val); });
+
+let iterator=custom_Iterator(1,5,1); //creating object to function
+let result=iterator.next();
+
+while(!result.done){
+  console.log(result.value);
+  result=iterator.next();
+}
