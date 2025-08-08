@@ -20,12 +20,15 @@ function stringlength(str) {
             }
             else {
                 let len = str.length;
-                resolve(`${str} - ${len}`); //returned to then
+                resolve(`${str} - ${len}`); //if the promise is successful, then this will be returned to then
             }
         }, 2000);
     });
 }
 delayedLowerCase("BEAUTIFUL CODE")
-    .then(res => stringlength(res))
-    .then(res => { console.log(res) })
-    .catch(error=>console.log(error));
+    .then(res => stringlength(res))  //PROMISE CHAINING //sending the result of one promise to other
+    .then(res => { console.log(res) }) //resolve is returned to then
+    .catch(error=>console.log(error)); //reject is returned to catch
+
+
+//3 promise states -- pending, fulfilled, rejected
